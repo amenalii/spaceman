@@ -1,0 +1,27 @@
+body {
+    background-color: navy;
+    background-image: url("https://wallpapercave.com/wp/wp10532924.jpg");
+    color:antiquewhite;
+}
+
+h1 {
+    font-size: 75px;
+    font-family: "Audiowide", Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.display {
+    display: contents;
+    float: right;
+}
+
+.image {
+    image: url('https://i.fbcd.co/products/resized/resized-750-500/rocket-in-a-space-41be839ffce1577d5493963ae8c07deaa63fc436f8a03f592bb7c9d1a4ef039f.jpg');
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
