@@ -23,14 +23,18 @@ const words = [
     "phenomenon", "satellite", "astronaut"
 ];
 
+const maxAttemps = 9
+const word = words[Math.floor(Math.random() * words.length)];
 /*-------------------------------- Variables --------------------------------*/
-let playerChoice;
-let msg;
-
+let currentWord;
+let correctLetters;
+let wrongGuess;
 /*------------------------ Cached Element References ------------------------*/
 const buttons = document.querySelectorAll('.key');
-const resetbutton = document.querySelector('.reset')
-
+const resetButton = document.querySelector('.reset')
+const display = document.querySelector('#display')
+const wordDisplay = document.querySelector('.word-display')
+const attempts = document.querySelector('.attempts')
 /*----------------------------- Event Listeners -----------------------------*/
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
@@ -39,7 +43,47 @@ buttons.forEach(button => {
     })
 })
 
-resetbutton.addEventListener('click', (event) => {
+resetButton.addEventListener('click', (event) => {
     console.log(event.target.textContent)
 })
 /*-------------------------------- Functions --------------------------------*/
+
+//Game Initialization
+const resetGame = () => {
+    correctLetters = [];
+    wrongGuess = 0;
+    currentWord = word;
+    attempts.textContent = `${wrongGuess} / ${maxAttemps}`;
+    wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter">_</li>`).join("");
+    display.textContent = "";
+}
+
+//resetGame();
+
+//.includes test 
+// if (words.includes('amen')) {
+//     console.log("True")
+// } else {
+//     console.log('false')
+// }
+
+const handleKey = (key) => {
+    key = key.toUpperCase();
+    if (currentWord.includes(key)) {
+        correctLetters.push(key);
+    } else {
+        wrongGuesses++;
+        attempts.textContent = `${wrongGuesses} / ${maxAttempts}`;
+    } 
+};
+
+//Show Word in Display
+const updateDisplay = () => {
+    
+}
+
+
+// // Win/Loss Function
+
+
+
