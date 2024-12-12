@@ -1,22 +1,32 @@
 body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
     background-color: navy;
     background-image: url("https://wallpapercave.com/wp/wp10532924.jpg");
-    color:antiquewhite;
 }
 
-h1 {
-    font-size: 75px;
+header {
+    color:antiquewhite;
+    font-size: 50px;
     font-family: "Audiowide", Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
-.display {
-    display: contents;
-    float: right;
+#display {
+    font-size: 40px;
+    font-family: "Audiowide", Arial, Helvetica, sans-serif;
+    text-align: center;
+    min-height: 40px;
+    padding: 10px;
+    border: 2px solid antiquewhite;
+    background-color: rgba(0, 0, 128, 0.5);
 }
 
 .image {
-    image: url('https://i.fbcd.co/products/resized/resized-750-500/rocket-in-a-space-41be839ffce1577d5493963ae8c07deaa63fc436f8a03f592bb7c9d1a4ef039f.jpg');
 }
 
 .keyboard {
@@ -24,4 +34,30 @@ h1 {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+}
+
+.keyboard .row {
+    display: flex;
+    gap: 10px;
+
+}
+
+button {
+    background-color: rgba(0, 0, 128, 0.5);
+    color: antiquewhite;
+    font-family: "Audiowide", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 10px 15px;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
+
+.keyboard button:hover {
+    background-color: antiquewhite;
+    color: navy; 
+}
+
+.reset button:hover {
+    background-color: antiquewhite;
+    color: navy; 
 }
