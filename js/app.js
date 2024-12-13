@@ -23,8 +23,7 @@ const words = [
     "phenomenon", "satellite", "astronaut"
 ];
 
-const maxAttemps = 9
-const word = words[Math.floor(Math.random() * words.length)];
+const maxAttempts = 9
 /*-------------------------------- Variables --------------------------------*/
 let currentWord;
 let correctLetters;
@@ -44,46 +43,52 @@ buttons.forEach(button => {
 })
 
 resetButton.addEventListener('click', (event) => {
-    console.log(event.target.textContent)
+    console.log(event.target.textContent);
 })
 /*-------------------------------- Functions --------------------------------*/
+// // Function to get random word
+// function randomWord() {
+//     console.log(words[Math.floor(Math.random() * words.length)]);
+// }
+// // randomWord()
+// // randomWord();
+// // randomWord()
 
-//Game Initialization
+// Game Initialization
 const resetGame = () => {
+    currentWord = words[Math.floor(Math.random() * words.length)];
     correctLetters = [];
     wrongGuess = 0;
-    currentWord = word;
-    attempts.textContent = `${wrongGuess} / ${maxAttemps}`;
-    wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter">_</li>`).join("");
-    display.textContent = "";
+    display.textContent = ""
+    attempts.textContent = `${wrongGuess} / ${maxAttempts}`;
+    updateWordDisplay();
 }
 
-//resetGame();
+// //.includes test 
+// // if (words.includes('amen')) {
+// //     console.log("True")
+// // } else {
+// //     console.log('false')
+// // }
 
-//.includes test 
-// if (words.includes('amen')) {
-//     console.log("True")
-// } else {
-//     console.log('false')
-// }
-
-const handleKey = (key) => {
-    key = key.toUpperCase();
-    if (currentWord.includes(key)) {
-        correctLetters.push(key);
-    } else {
-        wrongGuesses++;
-        attempts.textContent = `${wrongGuesses} / ${maxAttempts}`;
-    } 
-};
-
-//Show Word in Display
-const updateDisplay = () => {
-    
+// 
+const updateWord = () => {
+    return currentWord.split('').map(letter => {
+        if (correctLetters.includes(letter)) {
+            return letter + " ";
+        } else {
+            return "_";
+        }
+    }).join('') //.join is needed because it helps return as string removing error. 
 }
 
+const updateWordDisplay = () => {
+    wordDisplay.textContent = updateWord();
+}
 
-// // Win/Loss Function
+//Needs to be called after defining UpdateWordDisplay function, 
+//otherwise it gives error for being undefined. 
+resetGame();
 
 
 
