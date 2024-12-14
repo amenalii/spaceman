@@ -38,7 +38,8 @@ const attempts = document.querySelector('.attempts')
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
         const key = event.target.textContent;
-        console.log(key)
+        console.log(key);
+        handleKeyInput(key);
     })
 })
 
@@ -84,11 +85,39 @@ const updateWord = () => {
 
 const updateWordDisplay = () => {
     wordDisplay.textContent = updateWord();
+    console.log(wordDisplay.textContent);
 }
 
 //Needs to be called after defining UpdateWordDisplay function, 
 //otherwise it gives error for being undefined. 
 resetGame();
+
+//Button Clicking 
+//Function shows button in console but not on display
+const handleKeyInput = (key) => {
+    if (currentWord.includes(key)) {
+        if (!correctLetters.includes(key)) {
+            correctLetters.push(key);
+            console.log(correctLetters);
+            updateWordDisplay();
+        } 
+    } else {
+        wrongGuess++;
+        attempts.textContent = `${wrongGuess} / ${maxAttempts}`;
+        console.log(wrongGuess)
+    }
+}
+
+
+//Win/Loss Logic 
+
+
+
+
+
+
+//Restart Game
+
 
 
 
