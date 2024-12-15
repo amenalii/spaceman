@@ -38,13 +38,15 @@ const attempts = document.querySelector('.attempts')
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
         const key = event.target.textContent;
-        console.log(key);
+        //console.log(key);
         handleKeyInput(key);
+        checkWinLoss();
     })
 })
 
 resetButton.addEventListener('click', (event) => {
     console.log(event.target.textContent);
+    resetGame();
 })
 /*-------------------------------- Functions --------------------------------*/
 // // Function to get random word
@@ -85,39 +87,35 @@ const updateWord = () => {
 
 const updateWordDisplay = () => {
     wordDisplay.textContent = updateWord();
-    console.log(wordDisplay.textContent);
+    //console.log(wordDisplay.textContent);
 }
 
 //Needs to be called after defining UpdateWordDisplay function, 
 //otherwise it gives error for being undefined. 
 resetGame();
 
-//Button Clicking 
-//Function shows button in console but not on display
+//Button Clicking
 const handleKeyInput = (key) => {
+    key = key.toLowerCase();
     if (currentWord.includes(key)) {
         if (!correctLetters.includes(key)) {
             correctLetters.push(key);
-            console.log(correctLetters);
+            //console.log(correctLetters);
             updateWordDisplay();
         } 
     } else {
         wrongGuess++;
         attempts.textContent = `${wrongGuess} / ${maxAttempts}`;
-        console.log(wrongGuess)
+        //console.log(wrongGuess)
     }
 }
 
-
 //Win/Loss Logic 
-
-
-
-
-
-
-//Restart Game
-
-
-
+const checkWinLoss = () => {
+    if (updateWord().includes("_") === false) {
+        display.textContent = "You Win!!!"
+    } else if (wrongGuess >= maxAttempts) {
+        display.textContent = `Sorry, You Lose! The word was ${currentWord}.`
+    }
+}
 
