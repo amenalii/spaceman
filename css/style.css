@@ -1,44 +1,66 @@
 body {
-    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
     background-color: navy;
     background-image: url("https://wallpapercave.com/wp/wp10532924.jpg");
     color: antiquewhite;
     font-family: "Audiowide", Arial, Helvetica, sans-serif;
 }
 
-header {
-    color:antiquewhite;
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 20px;
+h1 {
+    font-size: 100px;
+    margin: 30px;
 }
 
 #display {
     font-size: 30px;
     text-align: center;
-    min-height: 40px;
-    padding: 10px;
     border: 2px solid antiquewhite;
-    background-color: rgba(0, 0, 128, 0.5);
-    margin-bottom: 20px;
     border-radius: 15px;
-    
-
+    padding: 15px;
+    margin: auto;
+    background-color: rgba(0, 0, 128, 0.5);
 }
 
-#word-display {
+main {
     display: flex;
+    align-items: center;
+    align-content: center;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
+    width: 80%;
+    height: 40vh;
+    margin: 30px;
 }
 
 .image {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.game-row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 30px;
+    padding: 10px;
+}
+
+.word-display {
+    font-size: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+.attempts {
+    font-size: 20px;
 }
 
 .keyboard {
@@ -46,12 +68,16 @@ header {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+    align-items: center;
 }
 
 .keyboard .row {
     display: flex;
-    gap: 10px;
+    gap: 15px;
+}
 
+.restart {
+    margin-bottom: 30px;
 }
 
 button {
@@ -64,12 +90,20 @@ button {
     border-radius: 15px;
 }
 
-.keyboard button:hover {
+button:hover {
     background-color: antiquewhite;
-    color: navy; 
+    color: navy;
 }
 
-.reset button:hover {
-    background-color: antiquewhite;
-    color: navy; 
+.instructions {
+    border: 2px solid antiquewhite;
+    margin: 30px;
+    padding: 0px 25px;
+    background-color: navy;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+li {
+    margin: 10px;
 }

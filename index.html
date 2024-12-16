@@ -4,57 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide"/>
+    <script defer src="./js/data.js"></script>
     <script defer src="./js/app.js"></script>
   </head>
   <body>
-    <header>
       <h1>Spaceman</h1>
       <p id="display"></p>
-    </header>
     <main>
       <div class="image">
         <div class="attempts"></div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjAzgF6hoBk5JE2lIi6HCoiFV7ZsjgPL6Mw&s"
+          alt="Rocket in space"
+        />
       </div>
-      <div class="word-display"></div>
-      <div class="keyboard">
-        <div class="row">
-          <button class="key">Q</button>
-          <button class="key">W</button>
-          <button class="key">E</button>
-          <button class="key">R</button>
-          <button class="key">T</button>
-          <button class="key">Y</button>
-          <button class="key">U</button>
-          <button class="key">I</button>
-          <button class="key">O</button>
-          <button class="key">P</button>
-        </div>
-        <div class="row">
-          <button class="key">A</button>
-          <button class="key">S</button>
-          <button class="key">D</button>
-          <button class="key">F</button>
-          <button class="key">G</button>
-          <button class="key">H</button>
-          <button class="key">J</button>
-          <button class="key">K</button>
-          <button class="key">L</button>
-        </div>
-        <div class="row">
-          <button class="key">Z</button>
-          <button class="key">X</button>
-          <button class="key">C</button>
-          <button class="key">V</button>
-          <button class="key">B</button>
-          <button class="key">N</button>
-          <button class="key">M</button>
+      <div class="game-row">
+        <div class="word-display"></div>
+        <div class="keyboard">
+          <div class="row">
+            <button class="key">Q</button>
+            <button class="key">W</button>
+            <button class="key">E</button>
+            <button class="key">R</button>
+            <button class="key">T</button>
+            <button class="key">Y</button>
+            <button class="key">U</button>
+            <button class="key">I</button>
+            <button class="key">O</button>
+            <button class="key">P</button>
+          </div>
+          <div class="row">
+            <button class="key">A</button>
+            <button class="key">S</button>
+            <button class="key">D</button>
+            <button class="key">F</button>
+            <button class="key">G</button>
+            <button class="key">H</button>
+            <button class="key">J</button>
+            <button class="key">K</button>
+            <button class="key">L</button>
+          </div>
+          <div class="row">
+            <button class="key">Z</button>
+            <button class="key">X</button>
+            <button class="key">C</button>
+            <button class="key">V</button>
+            <button class="key">B</button>
+            <button class="key">N</button>
+            <button class="key">M</button>
+          </div>
         </div>
       </div>
     </main>
     <div>
       <button class="reset">Restart Game</button>
+    </div>
+    <div class="instructions">
+      <h3>How to Play:</h3>
+      <ul>
+        <li>Your objective is to guess the space-themed hidden word.</li>
+        <li>Each letter in the word is hidden and must be guessed individually.</li>
+        <li>Select a letter using the onscreen keyboard.</li>
+        <li>Correct guesses will reveal the letter; wrong guesses reduce your attempts.</li>
+        <li>Win by guessing the word before running out of attempts.</li>
+        <li>Click "Restart Game" to play again.</li>
+      </ul>
     </div>
   </body>
 </html>

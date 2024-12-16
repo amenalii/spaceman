@@ -1,0 +1,32 @@
+/*-------------------------------- Constants --------------------------------*/
+const words = [
+    "supernova",
+    "asteroid",
+    "galaxy",
+    "orbit",
+    "spacesuit",
+    "blackhole",
+    "comet",
+    "moon",
+    "starship",
+    "extraterrestrial",
+    "constellation",
+    "solar",
+    "meteor",
+    "hyperspace",
+    "expedition",
+    "nebula",
+    "quasar",
+    "planet",
+    "gravity",
+    "telescope",
+    "intergalactic",
+    "universe",
+    "rocket",
+    "eclipse",
+    "phenomenon",
+    "satellite",
+    "astronaut",
+  ];
+  
+  const maxAttempts = 9;
