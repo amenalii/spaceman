@@ -12,30 +12,16 @@ const attempts = document.querySelector(".attempts");
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     const key = event.target.textContent;
-    //console.log(key);
     handleKeyInput(key);
     checkWinLoss();
   });
 });
-
-// const stopButtons = () => {
-//     buttons.forEach(button => {
-//         button.removeEventListener('click', (event))
-//     })
-// }
 
 resetButton.addEventListener("click", (event) => {
   console.log(event.target.textContent);
   resetGame();
 });
 /*-------------------------------- Functions --------------------------------*/
-// // Function to get random word
-// function randomWord() {
-//     console.log(words[Math.floor(Math.random() * words.length)]);
-// }
-// // randomWord()
-// // randomWord();
-// // randomWord()
 
 // Game Initialization
 const resetGame = () => {
@@ -45,16 +31,10 @@ const resetGame = () => {
   display.textContent = "";
   attempts.textContent = `${wrongGuess} / ${maxAttempts}`;
   updateWordDisplay();
+  enableButtons();
 };
 
-// //.includes test
-// // if (words.includes('amen')) {
-// //     console.log("True")
-// // } else {
-// //     console.log('false')
-// // }
-
-//
+// Display Random word on Word Display
 const updateWord = () => {
   return currentWord
     .split("")
@@ -70,12 +50,7 @@ const updateWord = () => {
 
 const updateWordDisplay = () => {
   wordDisplay.textContent = updateWord();
-  //console.log(wordDisplay.textContent);
 };
-
-//Needs to be called after defining UpdateWordDisplay function,
-//otherwise it gives error for being undefined.
-resetGame();
 
 //Button Clicking
 const handleKeyInput = (key) => {
@@ -83,13 +58,11 @@ const handleKeyInput = (key) => {
   if (currentWord.includes(key)) {
     if (!correctLetters.includes(key)) {
       correctLetters.push(key);
-      //console.log(correctLetters);
       updateWordDisplay();
     }
   } else {
     wrongGuess++;
     attempts.textContent = `${wrongGuess} / ${maxAttempts}`;
-    //console.log(wrongGuess)
   }
 };
 
@@ -97,11 +70,25 @@ const handleKeyInput = (key) => {
 const checkWinLoss = () => {
   if (updateWord().includes("_") === false) {
     display.textContent = "You Win!!!";
+    disableButtons();
   } else if (wrongGuess >= maxAttempts) {
     display.textContent = `Sorry, You Lose! The word was ${currentWord}.`;
+    disableButtons();
   }
-  //stopButtons();
 };
 
-// //Make Buttons stop working
-// buttons.removeEventListener('click', event)
+//Disable Buttons Once Game is Over
+const disableButtons = () => {
+    buttons.forEach((button) => {
+        button.disabled = true;
+    })
+}
+
+//Enable Buttons for Restart
+const enableButtons = () => {
+    buttons.forEach((button) => {
+        button.disabled = false;
+    })
+}
+
+resetGame();
